@@ -107,39 +107,72 @@ function authenticateToken(request, response, next) {
  ```
 ### Response:
  
- ``` Status 200: "Register    Succesfully 
+ ``` bash
+Status 200: "Register    Succesfully 
 ```
 
-``` Status 400: "User Already Exist", "All fields are required", "Password Too Short"
+``` bash
+  Status 400: "User Already Exist", "All fields are required", "Password Too Short"
 ```
 
-``` Status 500: "Internal Server Error"
+``` bash 
+Status 500: "Internal Server Error"
 ```
 
 
- ### POST `/login`: Logs in an existing                  user and returns a JWT token.
-   * Request Body:
-     {
+ ### POST `/login`: Logs in a existing user and returns a JWT token.
+  
+- Request Body:
+   
+``` json 
+{
   "email": "existinguser@example.com",
   "password": "correctpassword"
 }
+```
 
-   * Response:
-     * Status 200:
+   - Response:
+
+     ``` bash 
+       Status 200:
        {
-  "jwtToken": "your.jwt.token"
-}
+      "jwtToken": "your.jwt.token"
+       }
 
-     * Status 400: "User Doesn't Exits", "All fields are required", "Invalid Password"
+    ```
+
+   ``` bash 
+    Status 400: "User Doesn't Exits",    "All fields are required"       Invalid Password"
+
+  ```
+
+```bash 
+
      * Status 500: "Server Error"
-User Management
- * GET /users: Retrieves a list of all registered users (requires authentication).
-   * Headers: Authorization: Bearer <your_jwt_token>
-   * Response:
-     * Status 200: An array of user objects.
+            User Management
+
+```
+
+
+
+- GET `/users`: Retrieves a list of all registered users (requires authentication).
+
+   -Headers: Authorization:` Bearer <your_jwt_token> `
+
+   -Response:
+
+     ``` bash 
+Status 200: An array of user objects.
+
+```
+    ```bash 
      * Status 401: "Your Not Authorized User"
+
+```
+``` bash 
      * Status 500: "Internal Server Error"
-Customer Management
+```
+###Customer Management
  * POST /customer: Registers a new customer (requires authentication).
    * Headers: Authorization: Bearer <your_jwt_token>
    * Request Body:
