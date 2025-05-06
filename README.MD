@@ -120,7 +120,7 @@ Status 500: "Internal Server Error"
 ```
 
 
- ### POST `/login`: Logs in a existing user and returns a JWT token.
+ - POST `/login`: Logs in a existing user and returns a JWT token.
   
 - Request Body:
    
@@ -159,7 +159,7 @@ Status 500: "Internal Server Error"
 
    -Headers: Authorization:` Bearer <your_jwt_token> `
 
-   -Response:
+   - Response:
 
      ``` bash 
 Status 200: An array of user objects.
@@ -173,79 +173,158 @@ Status 200: An array of user objects.
      * Status 500: "Internal Server Error"
 ```
 ###Customer Management
- * POST /customer: Registers a new customer (requires authentication).
-   * Headers: Authorization: Bearer <your_jwt_token>
-   * Request Body:
-     {
+
+ - POST `/customer`: Registers a new customer (requires authentication).
+
+   - Headers: Authorization: Bearer  `<your_jwt_token>`
+
+   - Request Body:
+
+  ``` json  
+{
   "userid": "user123",
   "name": "John Doe",
   "phone": "1234567890",
   "trustScore": 0.8
 }
+```
 
-   * Response:
-     * Status 200: "Customer Register Succesfully"
+   - Response:
+     ``` bash 
+Status 200: "Customer Register Succesfully"
+ ```
+```bash
      * Status 400: "Customer Already Exist", "All fields are required"
+```
+```bash
      * Status 401: "Your Not Authorized User"
+```
+```bash
      * Status 500: "Internal Server Error"
- * GET /customer: Retrieves a list of all registered customers (requires authentication).
-   * Headers: Authorization: Bearer <your_jwt_token>
-   * Response:
-     * Status 200: An array of customer objects.
+```
+
+ - GET `/customer`: Retrieves a list of all registered customers (requires authentication).
+
+   - Headers: Authorization: Bearer <your_jwt_token>
+
+   - Response:
+
+     ```bash
+Status 200: An array of customer 
+objects.
+```
+```bash 
      * Status 401: "Your Not Authorized User"
+```
+```bash
      * Status 500: "Internal Server Error"
- * GET /customer/:userid: Retrieves customers associated with a specific user ID (requires authentication).
-   * Headers: Authorization: Bearer <your_jwt_token>
-   * Path Parameter: userid (the ID of the user).
-   * Response:
-     * Status 200: An array of customer objects for the given user.
-     * Status 401: "Your Not Authorized User"
+```
+ - GET `/customer/:userid`: Retrieves customers associated with a specific user ID (requires authentication).
+
+   - Headers: Authorization: Bearer <your_jwt_token>
+
+   - Path Parameter: userid (the ID of the user).
+
+   - Response:
+     ``` bash 
+Status 200: An array of customer objects for the given user.
+```
+``` bash 
+    * Status 401: "Your Not Authorized User"
+```
+```bash
      * Status 404: {"message": "No customer found for this user."}
+```
+```bash
      * Status 500: "Internal Server Error"
- * GET /customer/:userid/:id: Retrieves a specific customer by user ID and customer ID (requires authentication).
-   * Headers: Authorization: Bearer <your_jwt_token>
-   * Path Parameters:
-     * userid (the ID of the user).
-     * id (the ID of the customer).
-   * Response:
-     * Status 200: A single customer object.
+```
+
+ - GET `/customer/:userid/:id`: Retrieves a specific customer by user ID and customer ID (requires authentication).
+
+   -Headers: Authorization: Bearer <your_jwt_token>
+
+   - Path Parameters:
+      -userid (the email of the user).
+      - id (the ID of the customer).
+   - Response:
+     ```bash 
+Status 200: A single customer object.
+```
+```bash 
      * Status 400: "All fields are required"
+```
+```bash 
      * Status 401: "Your Not Authorized User"
+```
+```bash 
      * Status 404: {"message": "No customer found for this user."}
+```
+```bash
      * Status 500: "Internal Server Error"
- * DELETE /customer/:userid/:id: Deletes a specific customer by user ID and customer ID (requires authentication).
-   * Headers: Authorization: Bearer <your_jwt_token>
-   * Path Parameters:
-     * userid (the ID of the user).
-     * id (the ID of the customer).
-   * Response:
+```
+ - DELETE `/customer/:userid/:id`: 
+
+Deletes a specific customer by user ID and customer ID (requires authentication).
+
+   - Headers: Authorization: Bearer <your_jwt_token>
+
+   -Path Parameters:
+     - userid (the email of the user).
+     - id (the ID of the customer).
+   - Response:
+```bash 
      * Status 200: "Customer Deleted Succesfully"
+```
+```bash 
      * Status 400: "All fields are required"
+```
+```bash
      * Status 401: "Your Not Authorized User"
+```
+```bash 
      * Status 404: {"message": "No customer found for this user."}
+```
+```bash
      * Status 500: "Internal Server Error"
- * PUT /customer/:userid/:id: Updates a specific customer by user ID and customer ID (requires authentication).
-   * Headers: Authorization: Bearer <your_jwt_token>
-   * Path Parameters:
-     * userid (the ID of the user).
-     * id (the ID of the customer).
+```
+ - PUT `/customer/:userid/:id`: Updates a specific customer by user ID and customer ID (requires authentication).
+
+   - Headers: Authorization: Bearer <your_jwt_token>
+   - Path Parameters:
+     - userid (the email of the user).
+     -id (the ID of the customer).
    * Request Body: The customer object with updated fields.
+```json
      {
   "name": "Jane Doe",
   "phone": "0987654321",
   "trustScore": 0.9
 }
+```
 
-   * Response:
-     * Status 200: The updated customer object.
+   - Response:
+    ```bash 
+* Status 200: The updated customer object.
+```
+```bash
      * Status 400: "All fields are required"
+```
+```bash 
      * Status 401: "Your Not Authorized User"
+```
+```bash
      * Status 404: {"message": "No customer found for this user."}
+```
+```bash 
      * Status 500: "Internal Server Error"
-Loan Management
- * POST /loan: Creates a new loan (requires authentication).
-   * Headers: Authorization: Bearer <your_jwt_token>
-   * Request Body:
+```
+###Loan Management
+ -POST `/loan` : Creates a new loan (requires authentication).
+
+   -Headers: Authorization: Bearer <your_jwt_token>
+
+   - Request Body:
+``` json
      {
   "customerid": "customer123",
   "userid": "user123",
@@ -257,99 +336,177 @@ Loan Management
   "interest": 0.05,
   "graceDays": 7
 }
+```
 
-   * Response:
-     * Status 201: "Loan Created Successfully"
-     * Status 401: "Your Not Authorized User"
+   - Response:
+     ```bash 
+Status 201: "Loan Created Successfully"
+```
+
+    ```bash * Status 401: "Your Not Authorized User"
+```
+```bash
      * Status 500: "Error creating loan"
- * GET /loan: Retrieves a list of all loans (requires authentication).
-   * Headers: Authorization: Bearer <your_jwt_token>
-   * Response:
+```
+- GET `/loan`: Retrieves a list of all loans (requires authentication).
+
+   - Headers: Authorization: Bearer <your_jwt_token>
+
+   -Response:
+```bash
      * Status 200: An array of loan objects.
+```
+```bash
      * Status 401: "Your Not Authorized User"
+```
+```bash
      * Status 500: "Error fetching loans"
- * GET /loan/:userid/: Retrieves all loans associated with a specific user ID (requires authentication).
-   * Headers: Authorization: Bearer <your_jwt_token>
-   * Path Parameter: userid (the ID of the user).
-   * Response:
+```
+ - GET `/loan/:userid/`: Retrieves all loans associated with a specific user ID like email (requires authentication).
+
+   - Headers: Authorization: Bearer <your_jwt_token>
+
+   -Path Parameter: userid (the email of the user).
+
+   - Response:
+```bash
      * Status 200: An array of loan objects for the given user.
+```
+```bash
      * Status 400: "All fields are required"
+```
+```bash
      * Status 401: "Your Not Authorized User"
+```
+```bash
      * Status 404: {"message": "No customer found for this user."}
+```
+```bash
      * Status 500: "Internal Server Error"
- * GET /loan/:userid/:id: Retrieves a specific loan by user ID and loan ID (requires authentication).
-   * Headers: Authorization: Bearer <your_jwt_token>
-   * Path Parameters:
-     * userid (the ID of the user).
-     * id (the ID of the loan).
-   * Response:
+```
+ -GET `/loan/:userid/:id`: Retrieves a specific loan by user ID and loan ID (requires authentication).
+
+   - Headers: Authorization: Bearer <your_jwt_token>
+
+   - Path Parameters:
+     -userid (the email of the user).
+     -id (the ID of the loan).
+   - Response:
+     ```bash
      * Status 200: A single loan object.
+```
+```bash 
      * Status 400: "All fields are required"
+```
+```bash
      * Status 401: "Your Not Authorized User"
+```
+```bash
      * Status 404: {"message": "No Loans found for this user."}
+```
+```bash
      * Status 500: "Internal Server Error"
-Repayment Management
- * POST /repayment: Records a loan repayment (requires authentication).
-   * Headers: Authorization: Bearer <your_jwt_token>
-   * Request Body:
+```
+
+### Repayment Management
+ - POST `/repayment`: Records a loan repayment (requires authentication).
+
+   -Headers: Authorization: Bearer <your_jwt_token>
+
+   - Request Body:
+
+```json
      {
   "loanid": "loan123",
   "amount": 2000,
   "date": "2025-06-10"
 }
+```
 
-   * Response:
+   - Response:
+```bash
      * Status 201: "Repayment Recorded"
+```
+```bash
      * Status 401: "Your Not Authorized User"
+```
+```bash
      * Status 404: "Loan not found"
      * Status 500: "Error recording repayment"
-Summary
- * GET /summary: Retrieves a summary of total loans, total loan amount, and total repayments (requires authentication).
-   * Headers: Authorization: Bearer <your_jwt_token>
-   * Response:
-     * Status 200:
+```
+
+### Summary
+ - GET /summary: Retrieves a summary of total loans, total loan amount, and total repayments (requires authentication).
+   - Headers: Authorization: Bearer <your_jwt_token>
+   -Response:
+     ```bash 
+Status 200:
+```
+```json 
        {
   "totalLoans": 50,
   "totalAmount": 500000,
   "totalRepayments": 100
 }
-
+```
+  ```bash
      * Status 401: "Your Not Authorized User"
      * Status 500: "Error fetching summary"
-Overdue Loans
- * GET /overdue: Retrieves a list of all overdue loans (where status is "pending") (requires authentication).
-   * Headers: Authorization: Bearer <your_jwt_token>
-   * Response:
+```
+
+### Overdue Loans
+ - GET `/overdue`: Retrieves a list of all overdue loans (where status is "pending") (requires authentication).
+
+   - Headers: Authorization: Bearer <your_jwt_token>
+
+   - Response:
+
+   ```bash
      * Status 200: An array of overdue loan objects.
      * Status 401: "Your Not Authorized User"
      * Status 500: "Error fetching overdue loans"
-Receipt Generation
- * GET /receipt/:id: Generates a PDF receipt for a specific loan ID.
-   * Path Parameter: id (the ID of the loan).
-   * Response: A PDF file stream as the response.
-Models
+```
+
+### Receipt Generation
+ - GET `/receipt/:id`: Generates a PDF receipt for a specific loan ID.
+
+   - Path Parameter: id (the ID of the loan).
+
+   - Response: A PDF file stream as the response.
+
+###Models
+
 The application uses Mongoose to define the data models:
- * Registeruser (./model.js): Represents registered users with username, email, and password (hashed).
- * Customer (./model1.js): Represents customer information with userid, name, phone, and trustScore.
- * Loan (./model2.js): Represents loan details with customerid, userid, item, amount, issueDate, dueDate, frequency, interest, graceDays, and balance.
- * Repayment (./model3.js): Represents repayment records with loanid, amount, and date.
-Error Handling
-The API implements basic error handling by returning appropriate HTTP status codes and error messages in the response body. Common error scenarios include:
- * 400 Bad Request: Invalid input data, missing required fields.
- * 401 Unauthorized: Invalid or missing JWT token for protected routes.
- * 404 Not Found: Requested resource not found.
- * 500 Internal Server Error: An unexpected error occurred on the server.
-Running the Application
- * Navigate to the project directory:
-   cd <repository_directory>
+
+ - Registeruser (./model.js): Represents registered users with username, email, and password (hashed).
+ - Customer (./model1.js): Represents customer information with userid, name, phone, and trustScore.
+ - Loan (./model2.js): Represents loan details with customerid, userid, item, amount, issueDate, dueDate, frequency, interest, graceDays, and balance.
+ -  Repayment (./model3.js): Represents repayment records with loanid, amount, and date.
+
+### Error Handling
+
+- The API implements basic error handling by returning appropriate HTTP status codes and error messages in the response body. Common error scenarios include:
+
+ - 400 Bad Request: Invalid input data, missing required fields.
+ - 401 Unauthorized: Invalid or missing JWT token for protected routes.
+ -  404 Not Found: Requested resource not found.
+ - 500 Internal Server Error: An unexpected error occurred on the server.
+
+### Running the Application
+
+ - Navigate to the project directory:
+   cd Networth-Tracker 
 
  * Start the server:
+  ```bash
    npm start
+```
 
-The server will start listening on the port specified in the .env file (default is 3000). You can then access the API endpoints using tools like Postman or curl.
-Similar Themes
- * Financial Management Systems
- * Microfinance Applications
- * Lending Platforms
+-The server will start listening on the port specified in the .env file (default is 3000). You can then access the API endpoints using tools like Postman or curl.
+
+### Similar Themes
+ - Financial Management Systems
+ - Microfinance Applications
+ - Lending Platforms
 
 
