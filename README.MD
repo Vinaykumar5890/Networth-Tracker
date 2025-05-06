@@ -142,13 +142,13 @@ Status 500: "Internal Server Error"
     ```
 
    ``` bash 
-    Status 400: "User Doesn't Exits",    "All fields are required"       Invalid Password"
+    Status 400: "User Doesn't Exits",    "All fields are required"        Invalid Password"
 
   ```
 
 ```bash 
 
-     * Status 500: "Server Error"
+      Status 500: "Server Error"
             User Management
 
 ```
@@ -166,11 +166,11 @@ Status 200: An array of user objects.
 
 ```
     ```bash 
-     * Status 401: "Your Not Authorized User"
+      Status 401: "Your Not Authorized User"
 
 ```
 ``` bash 
-     * Status 500: "Internal Server Error"
+      Status 500: "Internal Server Error"
 ```
 ###Customer Management
 
@@ -194,13 +194,13 @@ Status 200: An array of user objects.
 Status 200: "Customer Register Succesfully"
  ```
 ```bash
-     * Status 400: "Customer Already Exist", "All fields are required"
+      Status 400: "Customer Already Exist", "All fields are required"
 ```
 ```bash
-     * Status 401: "Your Not Authorized User"
+      Status 401: "Your Not Authorized User"
 ```
 ```bash
-     * Status 500: "Internal Server Error"
+      Status 500: "Internal Server Error"
 ```
 
  - GET `/customer`: Retrieves a list of all registered customers (requires authentication).
@@ -214,10 +214,10 @@ Status 200: An array of customer
 objects.
 ```
 ```bash 
-     * Status 401: "Your Not Authorized User"
+      Status 401: "Your Not Authorized User"
 ```
 ```bash
-     * Status 500: "Internal Server Error"
+      Status 500: "Internal Server Error"
 ```
  - GET `/customer/:userid`: Retrieves customers associated with a specific user ID (requires authentication).
 
@@ -230,13 +230,13 @@ objects.
 Status 200: An array of customer objects for the given user.
 ```
 ``` bash 
-    * Status 401: "Your Not Authorized User"
+     Status 401: "Your Not Authorized User"
 ```
 ```bash
-     * Status 404: {"message": "No customer found for this user."}
+      Status 404: {"message": "No customer found for this user."}
 ```
 ```bash
-     * Status 500: "Internal Server Error"
+      Status 500: "Internal Server Error"
 ```
 
  - GET `/customer/:userid/:id`: Retrieves a specific customer by user ID and customer ID (requires authentication).
@@ -251,16 +251,16 @@ Status 200: An array of customer objects for the given user.
 Status 200: A single customer object.
 ```
 ```bash 
-     * Status 400: "All fields are required"
+      Status 400: "All fields are required"
 ```
 ```bash 
-     * Status 401: "Your Not Authorized User"
+      Status 401: "Your Not Authorized User"
 ```
 ```bash 
-     * Status 404: {"message": "No customer found for this user."}
+      Status 404: {"message": "No customer found for this user."}
 ```
 ```bash
-     * Status 500: "Internal Server Error"
+      Status 500: "Internal Server Error"
 ```
  - DELETE `/customer/:userid/:id`: 
 
@@ -273,19 +273,19 @@ Deletes a specific customer by user ID and customer ID (requires authentication)
      - id (the ID of the customer).
    - Response:
 ```bash 
-     * Status 200: "Customer Deleted Succesfully"
+      Status 200: "Customer Deleted Succesfully"
 ```
 ```bash 
-     * Status 400: "All fields are required"
+      Status 400: "All fields are required"
 ```
 ```bash
-     * Status 401: "Your Not Authorized User"
+      Status 401: "Your Not Authorized User"
 ```
 ```bash 
-     * Status 404: {"message": "No customer found for this user."}
+      Status 404: {"message": "No customer found for this user."}
 ```
 ```bash
-     * Status 500: "Internal Server Error"
+      Status 500: "Internal Server Error"
 ```
  - PUT `/customer/:userid/:id`: Updates a specific customer by user ID and customer ID (requires authentication).
 
@@ -304,19 +304,19 @@ Deletes a specific customer by user ID and customer ID (requires authentication)
 
    - Response:
     ```bash 
-* Status 200: The updated customer object.
+ Status 200: The updated customer object.
 ```
 ```bash
-     * Status 400: "All fields are required"
+      Status 400: "All fields are required"
 ```
 ```bash 
-     * Status 401: "Your Not Authorized User"
+      Status 401: "Your Not Authorized User"
 ```
 ```bash
-     * Status 404: {"message": "No customer found for this user."}
+      Status 404: {"message": "No customer found for this user."}
 ```
 ```bash 
-     * Status 500: "Internal Server Error"
+      Status 500: "Internal Server Error"
 ```
 ###Loan Management
  -POST `/loan` : Creates a new loan (requires authentication).
@@ -346,7 +346,7 @@ Status 201: "Loan Created Successfully"
     ```bash * Status 401: "Your Not Authorized User"
 ```
 ```bash
-     * Status 500: "Error creating loan"
+      Status 500: "Error creating loan"
 ```
 - GET `/loan`: Retrieves a list of all loans (requires authentication).
 
@@ -354,13 +354,13 @@ Status 201: "Loan Created Successfully"
 
    -Response:
 ```bash
-     * Status 200: An array of loan objects.
+      Status 200: An array of loan objects.
 ```
 ```bash
-     * Status 401: "Your Not Authorized User"
+      Status 401: "Your Not Authorized User"
 ```
 ```bash
-     * Status 500: "Error fetching loans"
+      Status 500: "Error fetching loans"
 ```
  - GET `/loan/:userid/`: Retrieves all loans associated with a specific user ID like email (requires authentication).
 
@@ -370,19 +370,19 @@ Status 201: "Loan Created Successfully"
 
    - Response:
 ```bash
-     * Status 200: An array of loan objects for the given user.
+      Status 200: An array of loan objects for the given user.
 ```
 ```bash
-     * Status 400: "All fields are required"
+      Status 400: "All fields are required"
 ```
 ```bash
-     * Status 401: "Your Not Authorized User"
+      Status 401: "Your Not Authorized User"
 ```
 ```bash
-     * Status 404: {"message": "No customer found for this user."}
+      Status 404: {"message": "No customer found for this user."}
 ```
 ```bash
-     * Status 500: "Internal Server Error"
+      Status 500: "Internal Server Error"
 ```
  -GET `/loan/:userid/:id`: Retrieves a specific loan by user ID and loan ID (requires authentication).
 
@@ -393,19 +393,19 @@ Status 201: "Loan Created Successfully"
      -id (the ID of the loan).
    - Response:
      ```bash
-     * Status 200: A single loan object.
+      Status 200: A single loan object.
 ```
 ```bash 
-     * Status 400: "All fields are required"
+      Status 400: "All fields are required"
 ```
 ```bash
-     * Status 401: "Your Not Authorized User"
+     Status 401: "Your Not Authorized User"
 ```
 ```bash
      * Status 404: {"message": "No Loans found for this user."}
 ```
 ```bash
-     * Status 500: "Internal Server Error"
+      Status 500: "Internal Server Error"
 ```
 
 ### Repayment Management
@@ -425,14 +425,14 @@ Status 201: "Loan Created Successfully"
 
    - Response:
 ```bash
-     * Status 201: "Repayment Recorded"
+      Status 201: "Repayment Recorded"
 ```
 ```bash
-     * Status 401: "Your Not Authorized User"
+      Status 401: "Your Not Authorized User"
 ```
 ```bash
-     * Status 404: "Loan not found"
-     * Status 500: "Error recording repayment"
+      Status 404: "Loan not found"
+      Status 500: "Error recording repayment"
 ```
 
 ### Summary
@@ -450,8 +450,8 @@ Status 200:
 }
 ```
   ```bash
-     * Status 401: "Your Not Authorized User"
-     * Status 500: "Error fetching summary"
+      Status 401: "Your Not Authorized User"
+      Status 500: "Error fetching summary"
 ```
 
 ### Overdue Loans
@@ -462,9 +462,9 @@ Status 200:
    - Response:
 
    ```bash
-     * Status 200: An array of overdue loan objects.
-     * Status 401: "Your Not Authorized User"
-     * Status 500: "Error fetching overdue loans"
+      Status 200: An array of overdue loan objects.
+      Status 401: "Your Not Authorized User"
+      Status 500: "Error fetching overdue loans"
 ```
 
 ### Receipt Generation
@@ -497,7 +497,8 @@ The application uses Mongoose to define the data models:
  - Navigate to the project directory:
    cd Networth-Tracker 
 
- * Start the server:
+ - Start the server:
+
   ```bash
    npm start
 ```
