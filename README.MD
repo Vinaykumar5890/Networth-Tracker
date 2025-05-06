@@ -318,7 +318,7 @@ Deletes a specific customer by user ID and customer ID (requires authentication)
 ```bash 
       Status 500: "Internal Server Error"
 ```
-###Loan Management
+### Loan Management
  -POST `/loan` : Creates a new loan (requires authentication).
 
    -Headers: Authorization: Bearer <your_jwt_token>
