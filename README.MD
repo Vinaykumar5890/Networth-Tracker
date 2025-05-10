@@ -142,7 +142,7 @@ Status 500: "Internal Server Error"
     ```
 
    ``` bash 
-    Status 400: "User Doesn't Exits",    "All fields are required"        Invalid Password"
+    Status 400: "User Doesn't Exits",    "All fields are required"        "Invalid Password"
 
   ```
 
@@ -172,7 +172,7 @@ Status 200: An array of user objects.
 ``` bash 
       Status 500: "Internal Server Error"
 ```
-###Customer Management
+### Customer Management
 
  - POST `/customer`: Registers a new customer (requires authentication).
 
